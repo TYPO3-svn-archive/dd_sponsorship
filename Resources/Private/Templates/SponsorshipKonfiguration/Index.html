@@ -1,0 +1,171 @@
+<f:be.container
+pageTitle="Konfiguration"
+enableJumpToUrl="false"
+enableClickMenu="false"
+loadPrototype="false"
+loadScriptaculous="false"
+scriptaculousModule="someModule,someOtherModule"
+loadExtJs="true"
+loadExtJsTheme="false"
+enableExtJsDebug="false"
+addCssFile="{f:uri.resource(path:'css/backend.css')}"></f:be.container>
+
+<div id="ext-reports-mod-index-php" class="typo3-fullDoc">
+	<div id="typo3-docheader">
+		<div id="typo3-docheader-row1">
+			<div class="buttonsleft"></div>
+			<div class="buttonsright"></div>
+		</div>
+		<div id="typo3-docheader-row2">
+			<div class="docheader-row2-left"></div>
+			<div class="docheader-row2-right"></div>
+		</div>
+	</div>
+	<div id="typo3-docbody">
+		<div id="typo3-inner-docbody">
+			<f:if condition="{error_msg}">
+				<div id="typo3-messages">
+					<div class="typo3-message message-error">
+						<div class="message-body">
+							{error_msg}
+						</div>
+					</div>
+				</div>
+			</f:if>
+			<f:if condition="{done_msg}">
+				<div id="typo3-messages">
+					<div class="typo3-message message-ok">
+						<div class="message-body">
+							{done_msg}
+						</div>
+					</div>
+				</div>
+			</f:if>
+			<h2>
+			<f:translate key="config_title" htmlEscape="false" />
+			</h2>
+			<h3 class="uppercase">
+			<f:translate key="config_subsection" htmlEscape="false" />
+			</h3>
+			<div class="typo3-message message-information" style="margin-bottom:20px;">
+				<div class="message-header">
+					<f:translate key="config_hinweis" htmlEscape="false" />
+				</div>
+				<div class="message-body">
+					<f:translate key="config_hinweis_text" htmlEscape="false" />
+				</div>
+			</div>
+			<div style="float:left">
+				<div class="typo3-dyntabmenu-divs" style="padding-top:10px;">
+					<f:form action="submit" name="global" object="{global}">
+						<table cellspacing="0" cellpadding="0" border="0" class="typo3-usersettings" id="edit_form">
+							<tbody>
+								<tr>
+									<td class="td-label"><label for="task_disable"> <strong>
+										<f:translate key="config_table_title_id" htmlEscape="false" />
+										</strong> </label></td>
+									<td class="td-input"></td>
+								</tr>
+								<tr>
+									<td class="td-label"><label for="task_disable">
+										<f:translate key="config_table_pate_label" htmlEscape="false" />
+									</label></td>
+									<td class="td-input">
+									<f:form.textfield property="pateId" value="{pate_id}"/>
+									</td>
+								</tr>
+								<tr>
+									<td class="td-label"><label for="task_disable">
+										<f:translate key="config_table_patenkind_label" htmlEscape="false" />
+									</label></td>
+									<td class="td-input">
+									<f:form.textfield property="patenKindId" value="{pate_kind_id}"/>
+									</td>
+								</tr>
+								<tr>
+									<td class="td-label  b-bottom"></td>
+									<td class="td-input  b-bottom"></td>
+								</tr>
+								<tr>
+									<td class="td-label"><label for="task_disable"> <strong>
+										<f:translate key="config_table_title_email" htmlEscape="false" />
+										</strong> </label></td>
+									<td class="td-input"></td>
+								</tr>
+								<tr>
+									<td class="td-label"><label for="task_disable">
+										<f:translate key="config_table_email_label" htmlEscape="false" />
+									</label></td>
+									<td class="td-input">
+									<f:form.textfield property="email" value="{email}" style="width:250px"/>
+									</td>
+								</tr>
+								<tr>
+									<td class="td-label"><label for="task_disable">
+										<f:translate key="config_table_emailV_label" htmlEscape="false" />
+									</label></td>
+									<td class="td-input">
+									<f:form.textfield property="mail_url" value="{mail_url}" style="width:250px"/>
+									<br>
+									</td>
+								</tr>
+								<tr>
+									<td class="td-label  b-bottom"></td>
+									<td class="td-input  b-bottom"></td>
+								</tr>
+								<tr>
+									<td class="td-label"><label for="task_disable"> <strong>
+										<f:translate key="config_table_title_page" htmlEscape="false" />
+										</strong> </label></td>
+									<td class="td-input"></td>
+								</tr>
+								<tr>
+									<td class="td-label"><label for="task_disable">
+										<f:translate key="config_table_details_label" htmlEscape="false" />
+									</label></td>
+									<td class="td-input">
+									<f:form.textfield property="page_details_uid" value="{page_details_uid}"/>
+									</td>
+								</tr>
+								<tr>
+									<td class="td-label"><label for="task_disable">
+										<f:translate key="config_table_profil_label" htmlEscape="false" />
+									</label></td>
+									<td class="td-input">
+									<f:form.textfield property="page_profil_uid" value="{page_profil_uid}"/>
+									</td>
+								</tr>
+								<tr>
+									<td class="td-label"><label for="task_disable">
+										<f:translate key="config_table_profil_real_label" htmlEscape="false" />
+									</label></td>
+									<td class="td-input">
+									<f:form.textfield property="page_profil_real_uid" value="{page_profil_real_uid}"/>
+									</td>
+								</tr>
+								<tr>
+									<td class="td-label"><label for="task_disable">
+										<f:translate key="config_table_verwaltung_label" htmlEscape="false" />
+									</label></td>
+									<td class="td-input">
+									<f:form.textfield property="page_verwaltung_uid" value="{page_verwaltung_uid}"/>
+									</td>
+								</tr>
+								<tr>
+									<td class="td-label  b-bottom"></td>
+									<td class="td-input  b-bottom"></td>
+								</tr>
+								<tr>
+									<td class="td-label"></td>
+									<td class="td-input">
+									<f:form.submit property="sub_config" value="{f:translate(key:'config_table_button')}" />
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</f:form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

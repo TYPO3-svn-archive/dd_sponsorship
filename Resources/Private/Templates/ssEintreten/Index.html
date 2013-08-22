@@ -1,0 +1,17 @@
+<f:if condition="{ms}">
+	<f:then>
+		<div class="dd_sponsorhip_ms">
+			<p>
+				{ms} <a href="/index.php?id={profil_id}">
+				<f:translate key="eintreten_link" htmlEscape="false" />
+				</a>
+			</p>
+		</div>
+	</f:then>
+	<f:else>
+		<f:form action="submit">
+			<f:form.submit property="sub_config" value="{f:translate(key:'eintreten_button')}" class="btn" />
+		</f:form>
+	</f:else>
+</f:if>
+

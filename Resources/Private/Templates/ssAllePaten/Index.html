@@ -1,0 +1,82 @@
+<table class="table" cellpadding="10">
+	<thead>
+		<tr class="paten-liste-titel">
+			<td>
+				<f:translate key="page_allePaten_profil" htmlEscape="false" />
+			</td>
+			<td>
+				<f:translate key="page_allePaten_alter" htmlEscape="false" />
+			</td>
+			<td>
+				<f:translate key="page_allePaten_studium" htmlEscape="false" />
+			</td>
+			<td>
+				<f:translate key="page_allePaten_ort" htmlEscape="false" />
+			</td>
+		</tr>
+	</thead>
+	<tbody>
+		<f:for each="{entry}" as="daten">
+			<tr class="paten-liste blau">
+				<td><a href="/index.php?id={url}&tx_ddsponsorship_ssdetails[uid]=<f:cObject typoscriptObjectPath='lib.math' data='{daten.fuid}*1373'></f:cObject>">
+				<f:translate key="page_allePaten_profil_link" htmlEscape="false" />
+				</a></td>
+				<td>
+				<f:format.date format="Y">
+					@{daten.date_of_birth}
+				</f:format.date>
+				<br>
+				<f:if condition="{daten.gender} == 1">
+					<f:then>
+						<f:translate key="page_allePaten_female" htmlEscape="false" />
+					</f:then>
+					<f:else>
+						<f:translate key="page_allePaten_male" htmlEscape="false" />
+					</f:else>
+				</f:if></td>
+				<td>
+				<f:if condition="{daten.course1}">
+					{daten.course1}
+					<br>
+					({daten.semester1})
+				</f:if>
+				<f:if condition="{daten.course2}">
+					<br>
+					{daten.course2}
+					<br>
+					({daten.semester3})
+				</f:if>
+				<f:if condition="{daten.course3}">
+					<br>
+					{daten.course3}
+					<br>
+					({daten.semester3})
+				</f:if></td>
+				<td>{daten.city}</td>
+			</tr>
+		</f:for>
+	</tbody>
+</table>
+<div class="pager" id="pager">
+	<form>
+		<div class="page-control-box">
+			<span class="prev">
+				<f:translate key="pagination_back" htmlEscape="false" />
+			</span>
+			<input type="text" class="pagedisplay">
+			<span class="next">
+				<f:translate key="pagination_next" htmlEscape="false" />
+			</span>
+		</div>
+		<div class="pagesize-box">
+			<f:translate key="pagination_result" htmlEscape="false" />
+			<select class="pagesize">
+				<option value="10" selected="selected">10</option>
+				<option value="20">20</option>
+				<option value="30">30</option>
+				<option value="40">40</option>
+			</select>
+		</div>
+
+	</form>
+</div>

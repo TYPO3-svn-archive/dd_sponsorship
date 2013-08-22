@@ -1,0 +1,95 @@
+/**
+ * Default frontend styles for the extension output. This is BiTS style.
+ * 
+ * @author duda|design GbR
+ * @version 1.0 
+ */
+
+
+.table {
+	width: 100%;
+}
+.table tbody {
+	background-color: #F2F3F0;
+}
+.table td {
+	vertical-align: top;
+}
+.table tbody tr:nth-child(even) {
+	background-color: #D8DBCD;
+}
+.table tbody tr:nth-child(odd) {
+	background-color: #F2F3F0;
+}
+.table thead {
+	background-color: #78CA36;
+	font-weight: bold;
+}
+.control-group {
+	margin-bottom: 15px;
+	float: left;
+}
+.control-group textarea {
+	width: 300px;
+	height: 100px;
+}
+.control-label {
+	float: left;
+	width: 210px;
+	margin-right: 10px;
+}
+.controls {
+	float: left;
+	width: 310px;
+}
+.dd_sponsorhip_ms_ok {
+	border: 1px solid #78CA36;
+	padding: 5px;
+}
+
+.page_navigation, .alt_page_navigation {
+	padding-bottom: 10px;
+}
+
+.page_navigation a, .alt_page_navigation a {
+	padding: 3px 5px;
+	margin: 2px;
+	color: white;
+	text-decoration: none;
+	float: left;
+	font-family: Tahoma;
+	font-size: 12px;
+	background-color: #DB5C04;
+}
+.active_page {
+	background-color: white !important;
+	color: black !important;
+}
+
+.content, .alt_content {
+	color: black;
+}
+
+.content li, .alt_content li, .content > p {
+	padding: 5px
+}
+.pager {
+	position: inherit !important;
+}
+.page-control-box {
+	float: left;
+}
+.pagesize-box {
+	float: right;
+}
+.pagedisplay {
+	border: 0 none;
+	margin-left: 20px;
+	width: 40px;
+}
+.prev, .next {
+	color: #78CA36;
+	font-weight: bold;
+	cursor: pointer;
+	display: none;
+}

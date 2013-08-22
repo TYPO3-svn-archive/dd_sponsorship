@@ -1,0 +1,60 @@
+<table>
+    <tr><th>Benutzername</th><th>Name des Benutzers</th></tr>
+    <f:for each="{users}" as="user">
+        <tr>
+            <td>{user.username}</td>
+            <f:if condition="{user.name}">
+                <f:then><td>{user.name}</td></f:then>
+                <f:else><td>Kein Name vorhanden</td></f:else>
+            </f:if>
+            <f:if condition="{user.sponsorship_expectations_kind}">
+                <f:then><td>{user.sponsorship_expectations_kind}</td></f:then>
+                <f:else><td>Keine Erwartung des Patenkindes vorhanden</td></f:else>
+            </f:if>
+            <f:if condition="{user.sponsorship_expectations_pate}">
+                <f:then><td>{user.sponsorship_expectations_pate}</td></f:then>
+                <f:else><td>Kein Erwartung des Paten vorhanden</td></f:else>
+            </f:if>
+            <f:if condition="{user.sponsorship_anzahl_paten}">
+                <f:then><td>{user.sponsorship_anzahl_paten}</td></f:then>
+                <f:else><td>Kein Anzahl der Patenkinder vorhanden</td></f:else>
+            </f:if>
+            <f:if condition="{user.sponsorship_anon}">
+                <f:then><td>{user.sponsorship_anon}</td></f:then>
+                <f:else><td>Kein ANON vorhanden</td></f:else>
+            </f:if>
+            <f:if condition="{user.sponsorship_area_job}">
+                <f:then><td>{user.sponsorship_area_job}</td></f:then>
+                <f:else><td>Keine Angabe zum Berunfseinstieg vorhanden</td></f:else>
+            </f:if>
+            <f:if condition="{user.sponsorship_area_study}">
+                <f:then><td>{user.sponsorship_area_study}</td></f:then>
+                <f:else><td>Kein Angabe zur berufsbezogenen Studiengestaltung vorhanden</td></f:else>
+            </f:if>
+            <f:if condition="{user.sponsorship_area_inernship}">
+                <f:then><td>{user.sponsorship_area_inernship}</td></f:then>
+                <f:else><td>Kein Angabe zu Praktika vorhanden</td></f:else>
+            </f:if>
+            <f:if condition="{user.sponsorship_area_network}">
+                <f:then><td>{user.sponsorship_area_network}</td></f:then>
+                <f:else><td>Kein Angebe zu Kontakten & Beziehungen vorhanden</td></f:else>
+            </f:if>
+            <f:if condition="{user.sponsorship_area_general}">
+                <f:then><td>{user.sponsorship_area_general}</td></f:then>
+                <f:else><td>Kein Angabe zu allgemeine Themen vorhanden</td></f:else>
+            </f:if>
+            <f:if condition="{user.sponsorship_area_personal}">
+                <f:then><td>{user.sponsorship_area_personal}</td></f:then>
+                <f:else><td>Kein Angabe zu persönliche Dingen vorhanden</td></f:else>
+            </f:if>
+            <f:if condition="{user.sponsorship_area_feedback}">
+                <f:then><td>{user.sponsorship_area_feedback}</td></f:then>
+                <f:else><td>Kein Angabe zu Feedback vorhanden</td></f:else>
+            </f:if>
+            <f:if condition="{user.sponsorship_area_companies}">
+                <f:then><td>{user.sponsorship_area_feedback}</td></f:then>
+                <f:else><td>Kein Angabe zu Hintergrundinfos vorhanden</td></f:else>
+            </f:if>
+        </tr>
+    </f:for>
+</table>

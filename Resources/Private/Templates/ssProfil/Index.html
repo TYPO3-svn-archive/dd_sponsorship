@@ -1,0 +1,158 @@
+<f:if condition="{ms}">
+	<div class="dd_sponsorhip_ms_ok">
+		<p>{ms}</p>
+	</div>
+</f:if>
+<f:for each="{entry}" as="daten">
+	<f:form action="submit" name="global" object="{global}" class="form-horizontal">
+		<f:if condition="{patenkind}">
+			<div class="control-group">
+				<label class="control-label">
+					<f:translate key="page_profil_edit_erwartung_pate" htmlEscape="false" />
+				</label>
+				<div class="controls">
+					<f:form.textarea rows="" cols="" property="sponsorship_expectations_kind" name="sponsorship_expectations_kind" value="{daten.sponsorship_expectations_kind}" />
+				</div>
+			</div>
+		</f:if>
+		<f:if condition="{pate}">
+			<div class="control-group">
+				<label class="control-label">
+					<f:translate key="page_profil_edit_erwartung_patenkind" htmlEscape="false" />
+				</label>
+				<div class="controls">
+					<f:form.textarea rows="" cols="" property="sponsorship_expectations_pate" name="sponsorship_expectations_pate" value="{daten.sponsorship_expectations_pate}" />
+				</div>
+			</div>
+		</f:if>
+		<f:if condition="{pate}">
+			<div class="control-group">
+				<label class="control-label">
+					<f:translate key="page_profil_edit_zeit" htmlEscape="false" />
+				</label>
+				<div class="controls">
+					<f:form.textarea rows="" cols="" property="sponsorship_expected_time" name="sponsorship_expected_time" value="{daten.sponsorship_expected_time}" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">
+					<f:translate key="page_profil_edit_anzahl" htmlEscape="false" />
+				</label>
+				<div class="controls">
+					1
+					<f:form.radio name="sponsorship_anzahl_paten" value="1" property="sponsorship_anzahl_paten" checked="{daten.sponsorship_anzahl_paten}==1" />
+					2
+					<f:form.radio name="sponsorship_anzahl_paten" value="2" property="sponsorship_anzahl_paten" checked="{daten.sponsorship_anzahl_paten}==2" />
+					3
+					<f:form.radio name="sponsorship_anzahl_paten" value="3" property="sponsorship_anzahl_paten" checked="{daten.sponsorship_anzahl_paten}==3" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">
+					<f:translate key="page_profil_edit_anon" htmlEscape="false" />
+				</label>
+				<div class="controls">
+					<f:translate key="page_profil_edit_ja" htmlEscape="false" />
+					<f:form.radio name="sponsorship_anon" value="0" property="sponsorship_anon" checked="{daten.sponsorship_anon}==0" />
+					<f:translate key="page_profil_edit_nein" htmlEscape="false" />
+					<f:form.radio name="sponsorship_anon" value="1" property="sponsorship_anon" checked="{daten.sponsorship_anon}==1" />
+				</div>
+			</div>
+		</f:if>
+		<f:if condition="{pate}">
+			<h4 class="profiledit" style="margin:15px 0"><f:translate key="page_profil_edit_hilfe_pate" htmlEscape="false" /></h4>
+		</f:if>
+		<f:if condition="{patenkind}">
+			<h4 class="profiledit" style="margin:15px 0"><f:translate key="page_profil_edit_hilfe_patenkind" htmlEscape="false" /></h4>
+		</f:if>
+		<div class="control-group">
+			<label class="control-label">
+				<f:translate key="page_profil_edit_hilfe_bewerbung" htmlEscape="false" />
+			</label>
+			<div class="controls">
+				<f:translate key="page_profil_edit_ja" htmlEscape="false" />
+				<f:form.radio name="sponsorship_area_job" value="1" property="sponsorship_area_job" checked="{daten.sponsorship_area_job}==1" />
+				<f:translate key="page_profil_edit_nein" htmlEscape="false" />
+				<f:form.radio name="sponsorship_area_job" value="0" property="sponsorship_area_job" checked="{daten.sponsorship_area_job}==0" />
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">
+				<f:translate key="page_profil_edit_hilfe_studium" htmlEscape="false" />
+			</label>
+			<div class="controls">
+				<f:translate key="page_profil_edit_ja" htmlEscape="false" />
+				<f:form.radio name="sponsorship_area_study" value="1" property="sponsorship_area_study" checked="{daten.sponsorship_area_study}==1" />
+				<f:translate key="page_profil_edit_nein" htmlEscape="false" />
+				<f:form.radio name="sponsorship_area_study" value="0" property="sponsorship_area_study" checked="{daten.sponsorship_area_study}==0" />
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">
+				<f:translate key="page_profil_edit_hilfe_inernship" htmlEscape="false" />
+			</label>
+			<div class="controls">
+				<f:translate key="page_profil_edit_ja" htmlEscape="false" />
+				<f:form.radio name="sponsorship_area_inernship" value="1" property="sponsorship_area_inernship" checked="{daten.sponsorship_area_inernship}==1" />
+				<f:translate key="page_profil_edit_nein" htmlEscape="false" />
+				<f:form.radio name="sponsorship_area_inernship" value="0" property="sponsorship_area_inernship" checked="{daten.sponsorship_area_inernship}==0" />
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">
+				<f:translate key="page_profil_edit_hilfe_network" htmlEscape="false" />
+			</label>
+			<div class="controls">
+				<f:translate key="page_profil_edit_ja" htmlEscape="false" />
+				<f:form.radio name="sponsorship_area_network" value="1" property="sponsorship_area_network" checked="{daten.sponsorship_area_network}==1" />
+				<f:translate key="page_profil_edit_nein" htmlEscape="false" />
+				<f:form.radio name="sponsorship_area_network" value="0" property="sponsorship_area_network" checked="{daten.sponsorship_area_network}==0" />
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">
+				<f:translate key="page_profil_edit_hilfe_general" htmlEscape="false" />
+			</label>
+			<div class="controls">
+				<f:translate key="page_profil_edit_ja" htmlEscape="false" />
+				<f:form.radio name="sponsorship_area_general" value="1" property="sponsorship_area_general" checked="{daten.sponsorship_area_general}==1" />
+				<f:translate key="page_profil_edit_nein" htmlEscape="false" />
+				<f:form.radio name="sponsorship_area_general" value="0" property="sponsorship_area_general" checked="{daten.sponsorship_area_general}==0" />
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">
+				<f:translate key="page_profil_edit_hilfe_personal" htmlEscape="false" />
+			</label>
+			<div class="controls">
+				<f:translate key="page_profil_edit_ja" htmlEscape="false" />
+				<f:form.radio name="sponsorship_area_personal" value="1" property="sponsorship_area_personal" checked="{daten.sponsorship_area_personal}==1" />
+				<f:translate key="page_profil_edit_nein" htmlEscape="false" />
+				<f:form.radio name="sponsorship_area_personal" value="0" property="sponsorship_area_personal" checked="{daten.sponsorship_area_personal}==0" />
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">
+				<f:translate key="page_profil_edit_hilfe_feedback" htmlEscape="false" />
+			</label>
+			<div class="controls">
+				<f:translate key="page_profil_edit_ja" htmlEscape="false" />
+				<f:form.radio name="sponsorship_area_feedback" value="1" property="sponsorship_area_feedback" checked="{daten.sponsorship_area_feedback}==1" />
+				<f:translate key="page_profil_edit_nein" htmlEscape="false" />
+				<f:form.radio name="sponsorship_area_feedback" value="0" property="sponsorship_area_feedback" checked="{daten.sponsorship_area_feedback}==0" />
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">
+				<f:translate key="page_profil_edit_hilfe_companies" htmlEscape="false" />
+			</label>
+			<div class="controls">
+				<f:translate key="page_profil_edit_ja" htmlEscape="false" />
+				<f:form.radio name="sponsorship_area_companies" value="1" property="sponsorship_area_companies" checked="{daten.sponsorship_area_companies}==1" />
+				<f:translate key="page_profil_edit_nein" htmlEscape="false" />
+				<f:form.radio name="sponsorship_area_companies" value="0" property="sponsorship_area_companies" checked="{daten.sponsorship_area_companies}==0" />
+			</div>
+		</div>
+		<f:form.submit property="" value="{f:translate(key:'page_profil_edit_button')}" class="bnt"/>
+	</f:form>
+</f:for>

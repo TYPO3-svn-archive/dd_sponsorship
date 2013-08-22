@@ -1,0 +1,166 @@
+<f:if condition="{prufId}">
+	<p>
+		<f:if condition="{vor}">
+			<a href="/index.php?id={details_uid}&tx_ddsponsorship_ssdetails[uid]={vor}"><strong><f:translate key="page_profil_details_zurueck" htmlEscape="false" /></strong></a>
+		</f:if>
+		<f:if condition="{vorUndZurueck}">|</f:if>
+		<f:if condition="{zurueck}">
+			<a href="/index.php?id={details_uid}&tx_ddsponsorship_ssdetails[uid]={zurueck}"><strong><f:translate key="page_profil_details_vor" htmlEscape="false" /></strong></a>
+		</f:if>
+	</p>
+	<p>
+		<f:for each="{entry}" as="daten">
+			<strong>
+			<f:translate key="page_profil_details_geb" htmlEscape="false" />
+			</strong>
+			<f:format.date format="Y">
+				@{daten.date_of_birth}
+			</f:format.date>
+			<br>
+			<strong>
+			<f:translate key="page_profil_details_gender" htmlEscape="false" />
+			</strong>
+			<f:if condition="{daten.gender} == 1">
+				<f:then>
+					<f:translate key="page_allePaten_female" htmlEscape="false" />
+				</f:then>
+				<f:else>
+					<f:translate key="page_allePaten_male" htmlEscape="false" />
+				</f:else>
+			</f:if>
+	</p>
+	<p>
+		<strong>
+		<f:translate key="page_allePaten_studium" htmlEscape="false" />
+		</strong>
+		<br>
+		<f:if condition="{daten.course1}">
+			{daten.course1} ({daten.semester1})
+		</f:if>
+		<f:if condition="{daten.course2}">
+			<br>
+			{daten.course2}	({daten.semester3})
+		</f:if>
+		<f:if condition="{daten.course3}">
+			<br>
+			{daten.course3} ({daten.semester3})
+		</f:if>
+	</p>
+	<p>
+		<strong>
+		<f:translate key="page_allePaten_ort" htmlEscape="false" />
+		</strong> {daten.city}
+	</p>
+	<f:if condition="{pate_profil}">
+		<f:if condition="{daten.sponsorship_expectations_pate}">
+			<p>
+				<strong>
+				<f:translate key="page_profil_details_erwartung" htmlEscape="false" />
+				</strong>
+				<br>
+				{daten.sponsorship_expectations_pate}
+			</p>
+		</f:if>
+		<f:if condition="{daten.sponsorship_expected_time}">
+			<p>
+				<strong>
+				<f:translate key="page_profil_details_zeit" htmlEscape="false" />
+				</strong>
+				<br>
+				{daten.sponsorship_expected_time}
+			</p>
+		</f:if>
+	</f:if>
+	<f:if condition="{patenkind_profil}">
+		<f:if condition="{daten.sponsorship_expectations_kind}">
+			<p>
+				<strong>
+				<f:translate key="page_profil_details_erwartung" htmlEscape="false" />
+				</strong>
+				<br>
+				{daten.sponsorship_expectations_kind}
+			</p>
+		</f:if>
+	</f:if>
+	<strong>
+	<f:if condition="{pate_profil}">
+		<f:translate key="page_profil_details_hilfe_pate" htmlEscape="false" />
+	</f:if>
+	<f:if condition="{patenkind_profil}">
+		<f:translate key="page_profil_details_hilfe_kind" htmlEscape="false" />
+	</f:if> </strong>
+	<br>
+	<ul>
+		<f:if condition="{daten.sponsorship_area_job} == 1">
+			<li>
+				<f:translate key="page_profil_edit_hilfe_bewerbung" htmlEscape="false" />
+			</li>
+		</f:if>
+		<f:if condition="{daten.sponsorship_area_study} == 1">
+			<li>
+				<f:translate key="page_profil_edit_hilfe_studium" htmlEscape="false" />
+			</li>
+		</f:if>
+		<f:if condition="{daten.sponsorship_area_inernship} == 1">
+			<li>
+				<f:translate key="page_profil_edit_hilfe_inernship" htmlEscape="false" />
+			</li>
+		</f:if>
+		<f:if condition="{daten.sponsorship_area_network} == 1">
+			<li>
+				<f:translate key="page_profil_edit_hilfe_network" htmlEscape="false" />
+			</li>
+		</f:if>
+		<f:if condition="{daten.sponsorship_area_general} == 1">
+			<li>
+				<f:translate key="page_profil_edit_hilfe_general" htmlEscape="false" />
+			</li>
+		</f:if>
+		<f:if condition="{daten.sponsorship_area_personal} == 1">
+			<li>
+				<f:translate key="page_profil_edit_hilfe_personal" htmlEscape="false" />
+			</li>
+		</f:if>
+		<f:if condition="{daten.sponsorship_area_feedback} == 1">
+			<li>
+				<f:translate key="page_profil_edit_hilfe_feedback" htmlEscape="false" />
+			</li>
+		</f:if>
+		<f:if condition="{daten.sponsorship_area_companies} == 1">
+			<li>
+				<f:translate key="page_profil_edit_hilfe_companies" htmlEscape="false" />
+			</li>
+		</f:if>
+	</ul>
+	</f:for>
+	<f:if condition="{patenkind}">
+		<f:if condition="{own}">
+			<f:then></f:then>
+			<f:else>
+				<h3>
+				<f:translate key="page_profil_details_anfrage" htmlEscape="false" />
+				</h3>
+				<f:if condition="{check}">
+					<f:then>
+						{check}
+					</f:then>
+					<f:else>
+						<f:form>
+							<f:form.hidden name="akID" value="{akID}" />
+							<div class="control-group">
+								<label class="control-label">
+									<f:translate key="page_profil_details_anfrage_text" htmlEscape="false" />
+								</label>
+								<div class="controls">
+									<f:form.textarea rows="" cols="" property="anfrage_ms" name="anfrage_ms" value="{anfrage_ms}" />
+									<br>
+									<f:form.submit property="anfrage" value="{f:translate(key:'page_profil_details_button')}" />
+								</div>
+							</div>
+						</f:form>
+					</f:else>
+				</f:if>
+			</f:else>
+		</f:if>
+	</f:if>
+</f:if>

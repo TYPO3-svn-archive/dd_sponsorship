@@ -1,0 +1,194 @@
+{
+	"modules": [
+		{
+			"config": {
+				"position": [161, 160]
+			},
+			"name": "New Model Object",
+			"value": {
+				"actionGroup": {
+					"_default0_list": false,
+					"_default1_show": false,
+					"_default2_new_create": false,
+					"_default3_edit_update": false,
+					"_default4_delete": false,
+					"customActions": ["index"]
+				},
+				"name": "SponsorshipKonfiguration",
+				"objectsettings": {
+					"aggregateRoot": false,
+					"description": "",
+					"mapToTable": "",
+					"parentClass": "",
+					"sorting": false,
+					"type": "ValueObject",
+					"uid": "156583116538"
+				},
+				"propertyGroup": {
+					"properties": [
+						{
+							"propertyDescription": "",
+							"propertyIsExcludeField": false,
+							"propertyIsRequired": true,
+							"propertyName": "pateId",
+							"propertyType": "Integer",
+							"uid": "802735761097"
+						}, {
+							"propertyDescription": "",
+							"propertyIsExcludeField": false,
+							"propertyIsRequired": true,
+							"propertyName": "patenKindId",
+							"propertyType": "Integer",
+							"uid": "354095287078"
+						}
+					]
+				},
+				"relationGroup": {
+					"relations": []
+				}
+			}
+		}, {
+			"config": {
+				"position": [650, 163]
+			},
+			"name": "New Model Object",
+			"value": {
+				"actionGroup": {
+					"_default0_list": false,
+					"_default1_show": false,
+					"_default2_new_create": false,
+					"_default3_edit_update": false,
+					"_default4_delete": false,
+					"customActions": []
+				},
+				"name": "SponsorshipLink",
+				"objectsettings": {
+					"aggregateRoot": false,
+					"description": "",
+					"mapToTable": "",
+					"parentClass": "",
+					"sorting": false,
+					"type": "ValueObject",
+					"uid": "456075798151"
+				},
+				"propertyGroup": {
+					"properties": [
+						{
+							"propertyDescription": "",
+							"propertyIsExcludeField": false,
+							"propertyIsRequired": false,
+							"propertyName": "pate",
+							"propertyType": "Integer",
+							"uid": "106884381388"
+						}, {
+							"propertyDescription": "",
+							"propertyIsExcludeField": false,
+							"propertyIsRequired": false,
+							"propertyName": "patenKind",
+							"propertyType": "Integer",
+							"uid": "1333056955165"
+						}, {
+							"propertyDescription": "",
+							"propertyIsExcludeField": false,
+							"propertyIsRequired": false,
+							"propertyName": "status",
+							"propertyType": "Integer",
+							"uid": "1327889538679"
+						}
+					]
+				},
+				"relationGroup": {
+					"relations": []
+				}
+			}
+		}
+	],
+	"properties": {
+		"backendModules": [
+			{
+				"actions": {
+					"controllerActionCombinations": ""
+				},
+				"description": "",
+				"key": "ssKonfiguration",
+				"mainModule": "tools",
+				"name": "Patenschaften: Konfiguration",
+				"tabLabel": ""
+			}, {
+				"actions": {
+					"controllerActionCombinations": "ssVerwalten => index"
+				},
+				"description": "",
+				"key": "ssVerwalten",
+				"mainModule": "web",
+				"name": "Patenschaften: Verwalten",
+				"tabLabel": ""
+			}
+		],
+		"description": "",
+		"emConf": {
+			"category": "plugin",
+			"custom_category": "",
+			"dependsOn": "extbase => 1.3\nfluid => 1.3\ntypo3 => 4.5\n",
+			"disableVersioning": false,
+			"priority": "",
+			"shy": false,
+			"state": "alpha",
+			"targetVersion": "4.5",
+			"version": ""
+		},
+		"extensionKey": "dd_sponsorship",
+		"name": "Patenschaften",
+		"originalExtensionKey": "dd_sponsorship",
+		"persons": [],
+		"plugins": [
+			{
+				"actions": {
+					"controllerActionCombinations": "ssMeinePatenkinder => index",
+					"noncacheableActions": "",
+					"switchableActions": ""
+				},
+				"key": "ssVerwaltung",
+				"name": "Patenschaften: Verwaltung"
+			}, {
+				"actions": {
+					"controllerActionCombinations": "ssAllePaten => index",
+					"noncacheableActions": "",
+					"switchableActions": ""
+				},
+				"key": "ssAllePaten",
+				"name": "Patenschaften: Alle Paten"
+			}, {
+				"actions": {
+					"controllerActionCombinations": "ssVerlassen => index",
+					"noncacheableActions": "",
+					"switchableActions": ""
+				},
+				"key": "ssVerlassen",
+				"name": "Patenschaften: Patenprogramm verlassen"
+			}, {
+				"actions": {
+					"controllerActionCombinations": "ssAnfrageSenden => index",
+					"noncacheableActions": "",
+					"switchableActions": ""
+				},
+				"key": "ssEintreten",
+				"name": "Patenschaften: Patenprogramm eintreten "
+			}, {
+				"actions": {
+					"controllerActionCombinations": "ssAnfrageSenden => index",
+					"noncacheableActions": "",
+					"switchableActions": ""
+				},
+				"key": "ssDetails",
+				"name": "Patenschaften: Details"
+			}
+		]
+	},
+	"wires": [],
+	"log": {
+		"last_modified": "2013-07-25 02:56",
+		"extension_builder_version": "2.4.7",
+		"be_user": "Jan Hendrik Schreier (3)"
+	}
+}

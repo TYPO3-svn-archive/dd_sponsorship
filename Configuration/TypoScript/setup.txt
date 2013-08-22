@@ -1,0 +1,24 @@
+lib.math = TEXT
+lib.math {
+  current = 1
+  prioriCalc = 1
+}
+page.includeCSS.tx_dd_sponsorship_file_0 = EXT:dd_sponsorship/Resources/Public/css/style.css
+page.includeJSFooter.tx_dd_sponsorship_file_1 = EXT:dd_sponsorship/Resources/Public/js/jquery.tablesorter.min.js
+page.includeJSFooter.tx_dd_sponsorship_file_2 = EXT:dd_sponsorship/Resources/Public/js/jquery.tablesorter.pager.js
+page.includeJSFooter.tx_dd_sponsorship_file_4 = EXT:dd_sponsorship/Resources/Public/js/jquery-migrate-1.0.0.js
+page.includeJSFooter.tx_dd_sponsorship_file_3 = EXT:dd_sponsorship/Resources/Public/js/tx_dd_sponsorship.js
+
+plugin.tx_ddsponsorship {
+	persistence {
+		storagePid = {$plugin.tx_ddsponsorship.persistence.storagePid}
+		class {
+			Tx_DdSponsorship_Domain_Model_User {
+				mapping {
+					tableName = fe_users
+					recordType = Tx_DdSponsorship_Domain_Model_User
+				}
+			}
+		}
+	}
+}

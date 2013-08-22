@@ -1,0 +1,120 @@
+<f:if condition="{ms}">
+	<div class="dd_sponsorhip_ms_ok">
+		<p>{ms}</p>
+	</div>
+</f:if>
+
+<f:if condition="{isPate}">
+
+	<f:then>
+		<f:if condition="{pendingChildrenCheck}">
+			<h2><f:translate key="page_verwaltung_laufende" htmlEscape="false" /></h2>
+			<table class="table" cellpadding="10" width="100%">
+				<thead>
+					<tr class="paten-liste-titel">
+						<td><f:translate key="page_verwaltung_mitglied" htmlEscape="false" /></td>
+						<td><f:translate key="page_verwaltung_angefragt" htmlEscape="false" /></td>
+						<td><f:translate key="page_verwaltung_option" htmlEscape="false" /></td>
+					</tr>
+				</thead>
+				<tbody>
+					<f:for each="{pendingChildren}" as="data">
+						<tr class="paten-liste blau">
+							<td><a href="/index.php?id={details_url}&tx_ddsponsorship_ssdetails[uid]=<f:cObject typoscriptObjectPath='lib.math' data='{data.fe_uid}*1373'></f:cObject>">{data.username} </a></td>
+							<td><f:format.date format="d.m.Y">@{data.p_tstamp}</f:format.date></td>
+							<td><a href="/index.php?id={verwalten_url}&tx_ddsponsorship_ssverwaltung[an]={data.p_uid}"><f:translate key="page_verwaltung_annehmen" htmlEscape="false" /></a> | <a href="/index.php?id={verwalten_url}&tx_ddsponsorship_ssverwaltung[ab]={data.p_uid}"><f:translate key="page_verwaltung_ablehnen" htmlEscape="false" /></a></td>
+						</tr>
+					</f:for>
+				</tbody>
+			</table>
+		</f:if>
+		<f:if condition="{activeChildrenCheck}">
+			<h2><f:translate key="page_verwaltung_aktiv" htmlEscape="false" /></h2>
+			<p>
+				<f:translate key="page_verwaltung_hinweis" htmlEscape="false" /><a <a href="mailto:{f:translate(key:'page_verwaltung_hinweis_mail')}"><f:translate key="page_verwaltung_hinweis_mail" htmlEscape="false" /></a>
+			</p>
+			<table class="table" cellpadding="10" width="100%">
+				<thead>
+					<tr class="paten-liste-titel">
+						<td><f:translate key="page_verwaltung_mitglied" htmlEscape="false" /></td>
+					</tr>
+				</thead>
+				<tbody>
+					<f:for each="{activeChildren}" as="data">
+						<tr class="paten-liste blau">
+							<td><a href="/index.php?id={profil_id}&tx_wmdbbamemberprofile_pi2[uid]={data.fe_uid}">{data.first_name} {data.last_name}</a></td>
+						</tr>
+					</f:for>
+				</tbody>
+			</table>
+		</f:if>
+	</f:then>
+
+	<f:else>
+
+		<f:if condition="{pendingSponsorCheck}">
+			<h2><f:translate key="page_verwaltung_laufende" htmlEscape="false" /></h2>
+			<table class="table" cellpadding="10" width="100%">
+				<thead>
+					<tr class="paten-liste-titel">
+						<td><f:translate key="page_verwaltung_mitglied" htmlEscape="false" /></td>
+						<td><f:translate key="page_verwaltung_angefragt" htmlEscape="false" /></td>
+						<td><f:translate key="page_verwaltung_option" htmlEscape="false" /></td>
+					</tr>
+				</thead>
+				<tbody>
+					<f:for each="{pendingSponsor}" as="data">
+						<tr class="paten-liste blau">
+							<td><a href="/index.php?id={details_url}&tx_ddsponsorship_ssdetails[uid]=<f:cObject typoscriptObjectPath='lib.math' data='{data.fe_uid}*1373'></f:cObject>"><f:translate key="page_verwaltung_visit_profil" htmlEscape="false" /> </a></td>
+							<td><f:format.date format="d.m.Y">@{data.p_tstamp}</f:format.date></td>
+							<td><a href="/index.php?id={verwalten_url}&tx_ddsponsorship_ssverwaltung[pid]={data.p_uid}"><f:translate key="page_verwaltung_del" htmlEscape="false" /></a></td>
+						</tr>
+					</f:for>
+				</tbody>
+			</table>
+		</f:if>
+		<f:if condition="{activeSponsorCheck}">
+			<h2><f:translate key="page_verwaltung_aktiv" htmlEscape="false" /></h2>
+			<p>
+				<f:translate key="page_verwaltung_hinweis" htmlEscape="false" /><a <a href="mailto:{f:translate(key:'page_verwaltung_hinweis_mail')}"><f:translate key="page_verwaltung_hinweis_mail" htmlEscape="false" /></a>
+			</p>
+			<table class="table" cellpadding="10" width="100%">
+				<thead>
+					<tr class="paten-liste-titel">
+						<td><f:translate key="page_verwaltung_mitglied" htmlEscape="false" /></td>
+					</tr>
+				</thead>
+				<tbody>
+					<f:for each="{activeSponsor}" as="data">
+						<tr class="paten-liste blau">
+							<td><a href="/index.php?id={profil_id}&tx_wmdbbamemberprofile_pi2[uid]={data.fe_uid}">{data.first_name} {data.last_name}</a></td>
+						</tr>
+					</f:for>
+				</tbody>
+			</table>
+		</f:if>
+	</f:else>
+</f:if>
+
+<f:if condition="{0: closedChildrenCheck, 1: closedSponsorsCheck} != {0: 0, 1: 0}">
+	<h2><f:translate key="page_verwaltung_abgeschlossen" htmlEscape="false" /></h2>
+	<table class="table" cellpadding="10" width="100%">
+		<thead>
+			<tr class="paten-liste-titel">
+				<td><f:translate key="page_verwaltung_mitglied" htmlEscape="false" /></td>
+			</tr>
+		</thead>
+		<tbody>
+			<f:for each="{closedChildren}" as="mit">
+				<tr class="paten-liste blau">
+					<td><f:translate key="page_verwaltung_mit_k" htmlEscape="false" /> <a href="/index.php?id={profil_id}&tx_wmdbbamemberprofile_pi2[uid]={mit.fe_uid}">{mit.first_name} {mit.last_name}</a></td>
+				</tr>
+			</f:for>
+			<f:for each="{closedSponsors}" as="als">
+				<tr class="paten-liste blau">
+					<td><f:translate key="page_verwaltung_als_p" htmlEscape="false" /> <a href="/index.php?id={profil_id}&tx_wmdbbamemberprofile_pi2[uid]={als.fe_uid}">{als.first_name} {als.last_name}</a></td>
+				</tr>
+			</f:for>
+		</tbody>
+	</table>
+</f:if>

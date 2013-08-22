@@ -1,0 +1,16 @@
+/**
+ * Default backend styles for the extension output.
+ * 
+ * @author duda|design GbR
+ * @version 1.0
+ */
+
+.td-label, .td-input {
+	padding: 3px 0;
+}
+.b-bottom {
+	border-bottom: #C0C0C0 solid 1px;
+}
+.sponsorship-legend li {
+	margin-bottom: 3px;
+}
