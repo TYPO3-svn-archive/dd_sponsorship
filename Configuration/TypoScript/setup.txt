@@ -10,6 +10,9 @@ page.includeJSFooter.tx_dd_sponsorship_file_4 = EXT:dd_sponsorship/Resources/Pub
 page.includeJSFooter.tx_dd_sponsorship_file_3 = EXT:dd_sponsorship/Resources/Public/js/tx_dd_sponsorship.js
 
 plugin.tx_ddsponsorship {
+	# Emailadress of program manager. Shown on "Verwaltung" page
+	settings.sponsorship_admin_email = program_admin@domain.com
+	
 	persistence {
 		storagePid = {$plugin.tx_ddsponsorship.persistence.storagePid}
 		class {

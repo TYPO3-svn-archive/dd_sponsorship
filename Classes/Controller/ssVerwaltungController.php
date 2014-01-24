@@ -158,6 +158,7 @@ class Tx_DdSponsorship_Controller_ssVerwaltungController  extends Tx_Extbase_MVC
 				$this -> view -> assign('verwalten_url', $this -> config[0][page_verwaltung_uid]);
 				$this -> view -> assign('details_url', $this -> config[0][page_details_uid]);
 				$this -> view -> assign('profil_id', $this -> config[0][page_profil_real_uid]);
+				$this -> view -> assign('admin_email', $this -> settings['sponsorship_admin_email']);
 
 				$closedSponsors = $this -> sponsorshipKonfigurationRepository -> getClosedSponsors($this -> uid);
 				$this -> view -> assign('closedSponsors', $closedSponsors);

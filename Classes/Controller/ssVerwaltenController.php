@@ -24,7 +24,7 @@
  ***************************************************************/
 
 /**
- * Change stats of connected peopels
+ * Change stats of connected people
  *
  * @author duda|design GbR
  * @version 1.0

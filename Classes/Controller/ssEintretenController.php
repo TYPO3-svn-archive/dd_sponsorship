@@ -66,7 +66,7 @@ class Tx_DdSponsorship_Controller_ssEintretenController extends Tx_Extbase_MVC_C
 	}
 
 	/**
-	 * Triggered the requst form
+	 * Triggered the request form
 	 *
 	 * @return void
 	 */

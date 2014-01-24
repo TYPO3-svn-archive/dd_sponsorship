@@ -56,8 +56,6 @@ class Tx_DdSponsorship_Controller_ssDetailsController extends Tx_Extbase_MVC_Con
 	 */
 	public function indexAction(array $ms = NULL) {
 
-		print_r($this -> baseUrl);
-
 		//Cache leeren
 		$this -> cacheService -> clearPageCache($pidList);
 
@@ -169,12 +167,14 @@ class Tx_DdSponsorship_Controller_ssDetailsController extends Tx_Extbase_MVC_Con
 					$renderer -> assign('userMS', $inhalt);
 					$renderer -> assign('pate_vorname', $this -> childInfo[0][first_name]);
 					$renderer -> assign('pate_nachname', $this -> childInfo[0][last_name]);
+					$renderer -> assign('pate_uid', $this -> childInfo[0][fuid]);
 					$renderer -> assign('pate_email', $this -> childInfo[0][email]);
 					$renderer -> assign('pate_phone', $this -> childInfo[0][telephone]);
 					$renderer -> assign('pate_city', $this -> childInfo[0][city]);
 					$renderer -> assign('pate_erwartung', $this -> childInfo[0][sponsorship_expectations_kind]);
 					$renderer -> assign('details_id', $this -> config[0][page_details_uid]);
 					$renderer -> assign('verwalten_id', $this -> config[0][page_verwaltung_uid]);
+					$renderer -> assign('profil_id', $this -> config[0][page_profil_real_uid]);
 					$renderer -> assign('anid', $last);
 					$renderer -> assign('abid', $last);
 					$renderer -> assign('uid', $this -> childInfo[0][fuid] * 1373);
