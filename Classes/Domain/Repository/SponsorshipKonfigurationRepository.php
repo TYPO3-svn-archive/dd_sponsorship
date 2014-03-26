@@ -534,7 +534,7 @@ class Tx_DdSponsorship_Domain_Repository_SponsorshipKonfigurationRepository exte
 							LEFT JOIN user_system_university_study_course u4 ON s1.user_system_university_study_course= u4.uid
 							LEFT JOIN user_system_university_study_course u5 ON s1.user_system_university_study_course2= u5.uid
 							LEFT JOIN user_system_university_study_course u6 ON s1.user_system_university_study_course3= u6.uid
-							WHERE FIND_IN_SET('$patekind',s1.usergroup) > 0" . $and);
+							WHERE FIND_IN_SET('$patekind',s1.usergroup) > 0 and s1.deleted=0" . $and);
 		return $query -> execute();
 	}
 
@@ -605,20 +605,19 @@ class Tx_DdSponsorship_Domain_Repository_SponsorshipKonfigurationRepository exte
 	}
 
 	/**
-	 * Verifies the presence on an user in the sponsorship program
+	 * Verifies the presence of a user in the sponsorship program
 	 *
-	 * @param array $data group informations
+	 * @param array $data group information of a given user
 	 * @return boolean
 	 */
 	public function isInProgramm($data) {
-
 		$isInProgramm = false;
 		$data = $data[0][usergroup];
 
 		$getConfig = $this -> getConfig();
 		$pate_id = $getConfig[0][pate_id];
 		$paten_kind_id = $getConfig[0][paten_kind_id];
-
+		
 		$data = explode(",", $data);
 		for ($i = 0; count($data) > $i; $i++) {
 
@@ -631,12 +630,13 @@ class Tx_DdSponsorship_Domain_Repository_SponsorshipKonfigurationRepository exte
 	}
 
 	/**
-	 * Add an user in the sponsorship program and decides if it is a sponsor or sponsor child.
+	 * Add an user to the sponsorship program and decides if it is a sponsor or sponsor child.
 	 *
 	 * @param integer $id user ID
+	 * @param boolean $noNews if True, then the network news creation is suppressed
 	 * @return string
 	 */
-	public function AddUser($id) {
+	public function AddUser($id, $noNews=false) {
 
 		$getGroup = $this -> getGroup($id);
 		$showGroup = $getGroup[0][usergroup];
@@ -660,13 +660,15 @@ class Tx_DdSponsorship_Domain_Repository_SponsorshipKonfigurationRepository exte
 
 			if ($end1 != "" || $end2 != "" || $end3 != "") {
 				// Falls er bereits seinen Abschluss gemacht hat
-				if ($time > $end1 && $time > $end2 && $time > $end3) {
+				// alte Zeile. Hat auf alle Abschlüsse geschaut, es reicht aber der Erste: if ($time > $end1 && $time > $end2 && $time > $end3) {
+				if ($time > $end1 ) {
 					$new_group = $showGroup . "," . $pate_id;
 
 					$query = $this -> createQuery();
 					$query -> getQuerySettings() -> setReturnRawQueryResult(TRUE);
 					$query -> statement("UPDATE fe_users SET usergroup = '$new_group' WHERE uid = '$id' LIMIT 1");
 					$query -> execute();
+					if (!$noNews) { $this->CreateMessage($id); }
 					return "Pate";
 
 				} else {
@@ -676,6 +678,7 @@ class Tx_DdSponsorship_Domain_Repository_SponsorshipKonfigurationRepository exte
 					$query -> getQuerySettings() -> setReturnRawQueryResult(TRUE);
 					$query -> statement("UPDATE fe_users SET usergroup = '$new_group' WHERE uid = '$id' LIMIT 1");
 					$query -> execute();
+					if (!$noNews) { $this->CreateMessage($id); }
 					return "Patenkind";
 				}
 			} else {
@@ -685,6 +688,25 @@ class Tx_DdSponsorship_Domain_Repository_SponsorshipKonfigurationRepository exte
 		}
 	}
 
+	
+	/**
+	 * Creates entry in network changes table (creates a dependency to network changes module)
+	 *
+	 * @param integer $id  user ID
+	 * @return void
+	 */
+	private function CreateMessage($id) {
+		$insert = array();
+		$insert['changed_feuser_field'] = 'Patenprogramm';
+		$insert['news_message'] = ' nimmt jetzt am Patenprogramm teil.' ;
+		$insert['crdate'] = time();
+		$insert['user_id'] = $id;
+		return $GLOBALS['TYPO3_DB']->exec_INSERTquery(
+				'tx_wmdbbanetworknews_changes',
+				$insert
+		);
+	}
+	
 	/**
 	 * Delete an user from the sponsorship program
 	 *
@@ -725,7 +747,7 @@ class Tx_DdSponsorship_Domain_Repository_SponsorshipKonfigurationRepository exte
 	 * @return string
 	 */
 	public function niceString($string) {
-		return trim(mysql_real_escape_string(strip_tags(htmlentities($string))));
+		return trim(mysqli_real_escape_string(strip_tags(htmlentities($string))));
 	}
 
 }

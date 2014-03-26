@@ -119,7 +119,7 @@ class Tx_DdSponsorship_Domain_Repository_SponsorshipLinkRepository extends Tx_Ex
 	 * @return string
 	 */
 	public function niceString($string) {
-		return trim(mysql_real_escape_string(strip_tags(htmlentities($string))));
+		return trim(mysqli_real_escape_string(strip_tags(htmlentities($string))));
 	}
 
 }
